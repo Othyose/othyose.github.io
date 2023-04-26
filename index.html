@@ -87,10 +87,10 @@
 		const wordPass = 'hellhounds';
 		const keyPass = 'banana';
 
-		let correctPassword = '';
+		let correctPassword = 'hellhounds';
 		let inputPass = '';
 		
-		window.onload = function(wordPass) {
+		/* window.onload = function(wordPass) {
 			const encrypt = btoa(wordPass);
 			correctPassword = encrypt;
 			console.log(correctPassword)
@@ -102,7 +102,7 @@
 			const encryptedPassword = btoa(password);
 			return encryptedPassword;
 		}
-
+*/
 		function showPopup() {
 			popup.classList.add('show');
 		}
@@ -113,11 +113,11 @@
 
 		submitBtn.addEventListener('click', function() {
 			const inputPassword = passwordInput.value;
-			console.log(inputPassword);
-			inputPass = encryptPassword(inputPassword);
+			//console.log(inputPassword);
+			//inputPass = encryptPassword(inputPassword);
 			console.log(inputPass);
 
-			if (inputPass === correctPassword) { 
+			if (inputPassword === correctPassword) { 
 				showPopup(); 
 			} else {
 				alert('Incorrect Password!'); 
