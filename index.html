@@ -93,12 +93,15 @@
 		window.onload = function(wordPass, keyPass) {
 			const encrypt = btoa(keyPass + wordPass);
 			correctPassword = encrypt;
+			console.log(correctPassword)
 		}
 		
-		console.log(correctPassword)
 		
-		function encryptPassword(password, keyPass) {
+		
+		function encryptPassword(password, keyPass, correctPassword) {
 			const encryptedPassword = btoa(keyPass + password);
+			const decryptPass = atob(correctPassword)
+			console.log(decryptPass)
 			return encryptedPassword;
 		}
 
