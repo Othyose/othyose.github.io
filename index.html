@@ -100,8 +100,6 @@
 		
 		function encryptPassword(password, keyPass, correctPassword) {
 			const encryptedPassword = btoa(keyPass + password);
-			const decryptPass = atob(correctPassword)
-			console.log(decryptPass)
 			return encryptedPassword;
 		}
 
