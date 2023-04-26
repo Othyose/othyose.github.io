@@ -83,26 +83,38 @@
 		const submitBtn = document.getElementById('submit-btn');
 		const popup = document.getElementById('popup');
 		const closeBtn = document.getElementById('close-btn');
-		const correctPassword = 'hellhounds';
+		
+		const correctPassword = 'aGFsbGhvdW5kcyA='; // "hellhounds" encrypted with "banana"
 
-		submitBtn.addEventListener('click', function() {
-			if (passwordInput.value === correctPassword) {
-				showPopup();
-			} else {
-				alert('Incorrect password. Please try again.');
-			}
-		});
-
-		closeBtn.addEventListener('click', function() {
-			hidePopup();
-		});
+		function encryptPassword(password) {
+			const key = 'banana';
+			const encryptedPassword = btoa(key + password); // encrypt password with "banana" using base64 encoding
+			return encryptedPassword;
+		}
 
 		function showPopup() {
 			popup.classList.add('show');
 		}
 
-		function hidePopup() {
+		function closePopup() {
 			popup.classList.remove('show');
 		}
+
+		submitBtn.addEventListener('click', function() {
+			const inputPassword = passwordInput.value;
+			const encryptedPassword = encryptPassword(inputPassword); // encrypt the input password with "banana"
+
+			if (encryptedPassword === correctPassword) { // compare hashed input with hashed correct password
+				showPopup(); // show popup if passwords match
+			} else {
+				alert('Incorrect Password!'); // show alert message if passwords do not match
+			}
+
+			passwordInput.value = ''; // clear input field
+		});
+
+		closeBtn.addEventListener('click', function() {
+			closePopup(); // hide popup when close button is clicked
+		});
 	</script>
 </body>
