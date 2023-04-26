@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #f2f2f2;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+		input {
+			padding: 10px;
+			font-size: 16px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+			outline: none;
+			width: 300px;
+			text-align: center;
+		}
+		button {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			margin-left: 10px;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+		.popup {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.8);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.3s ease;
+		}
+		.popup-content {
+			background-color: #fff;
+			padding: 30px;
+			border-radius: 5px;
+			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+			text-align: center;
+		}
+		.popup.show {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="password-container">
+		<label for="password">Enter Password:</label>
+		<input type="password" id="password" placeholder="Type your password here">
+		<button id="submit-btn">Submit</button>
+	</div>
+	<div class="popup" id="popup">
+		<div class="popup-content">
+			<h2>Welcome!</h2>
+			<p>This is your secret information.</p>
+			<button id="close-btn">Close</button>
+		</div>
+	</div>
+	<script>
+		const passwordInput = document.getElementById('password');
+		const submitBtn = document.getElementById('submit-btn');
+		const popup = document.getElementById('popup');
+		const closeBtn = document.getElementById('close-btn');
+		const correctPassword = 'mysecretpassword';
+
+		submitBtn.addEventListener('click', function() {
+			if (passwordInput.value === correctPassword) {
+				showPopup();
+			} else {
+				alert('Incorrect password. Please try again.');
+			}
+		});
+
+		closeBtn.addEventListener('click', function() {
+			hidePopup();
+		});
+
+		function showPopup() {
+			popup.classList.add('show');
+		}
+
+		function hidePopup() {
+			popup.classList.remove('show');
+		}
+	</script>
+</body>
