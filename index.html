@@ -83,16 +83,22 @@
 		const submitBtn = document.getElementById('submit-btn');
 		const popup = document.getElementById('popup');
 		const closeBtn = document.getElementById('close-btn');
-		const pssWord = 'hellhounds';
-		const pssKey = 'banana';
-		
-		const correctPassword = btoa(pssKey + pssWord);
-		console.log('senha é'correctPassword);
-		
-		let inputPass = '';
 
-		function encryptPassword(password) {
-			const encryptedPassword = btoa(pssKey + password);
+		const wordPass = 'hellhounds';
+		const keyPass = 'banana';
+
+		let correctPassword = '';
+		let inputPass = '';
+		
+		window.onload = function(wordPass, keyPass) {
+			const encrypt = btoa(keyPass + wordPass);
+			correctPassword = encrypt;
+		}
+		
+		console.log(correctPassword)
+		
+		function encryptPassword(password, keyPass) {
+			const encryptedPassword = btoa(keyPass + password);
 			return encryptedPassword;
 		}
 
