@@ -90,16 +90,16 @@
 		let correctPassword = '';
 		let inputPass = '';
 		
-		window.onload = function(wordPass, keyPass) {
-			const encrypt = btoa(keyPass + wordPass);
+		window.onload = function(wordPass) {
+			const encrypt = btoa(wordPass);
 			correctPassword = encrypt;
 			console.log(correctPassword)
 		}
 		
 		
 		
-		function encryptPassword(password, keyPass, correctPassword) {
-			const encryptedPassword = btoa(keyPass + password);
+		function encryptPassword(password, correctPassword) {
+			const encryptedPassword = btoa(password);
 			return encryptedPassword;
 		}
 
