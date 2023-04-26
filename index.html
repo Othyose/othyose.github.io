@@ -84,12 +84,12 @@
 		const popup = document.getElementById('popup');
 		const closeBtn = document.getElementById('close-btn');
 		
-		const correctPassword = 'YmFuYW5haGVsbGhvdW5kcw=='; // "hellhounds" encrypted with "banana"
+		const correctPassword = 'YmFuYW5haGVsbGhvdW5kcw==';
 		let inputPass = '';
 
 		function encryptPassword(password) {
 			const key = 'banana';
-			const encryptedPassword = btoa(key + password); // encrypt password with "banana" using base64 encoding
+			const encryptedPassword = btoa(key + password);
 			return encryptedPassword;
 		}
 
@@ -103,20 +103,20 @@
 
 		submitBtn.addEventListener('click', function() {
 			const inputPassword = passwordInput.value;
-			inputPass = encryptPassword(inputPassword); // encrypt the input password with "banana"
+			inputPass = encryptPassword(inputPassword);
 			console.log(inputPass);
 
-			if (inputPass === correctPassword) { // compare hashed input with hashed correct password
-				showPopup(); // show popup if passwords match
+			if (inputPass === correctPassword) { 
+				showPopup(); 
 			} else {
-				alert('Incorrect Password!'); // show alert message if passwords do not match
+				alert('Incorrect Password!'); 
 			}
 
-			passwordInput.value = ''; // clear input field
+			passwordInput.value = ''; 
 		});
 
 		closeBtn.addEventListener('click', function() {
-			closePopup(); // hide popup when close button is clicked
+			closePopup();
 		});
 	</script>
 </body>
