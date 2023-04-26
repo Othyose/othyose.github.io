@@ -6,61 +6,85 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
-			background-color: #f2f2f2;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-			margin: 0;
+			background-color: #1c1c1c;
+			color: white;
+			font-family: Arial, sans-serif;
 		}
-		input {
+
+		h1 {
+			color: #ff4444;
+			text-align: center;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		input[type="password"] {
 			padding: 10px;
-			font-size: 16px;
-			border: none;
 			border-radius: 5px;
-			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-			outline: none;
-			width: 300px;
-			text-align: center;
-		}
-		button {
-			padding: 10px 20px;
-			background-color: #4CAF50;
-			color: #fff;
 			border: none;
-			border-radius: 5px;
-			font-size: 16px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-			margin-left: 10px;
-		}
-		button:hover {
-			background-color: #3e8e41;
-		}
-		.popup {
-			position: fixed;
-			top: 0;
-			left: 0;
+			background-color: #333333;
+			color: white;
 			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.8);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			opacity: 0;
-			pointer-events: none;
-			transition: opacity 0.3s ease;
+			box-sizing: border-box;
+			margin-bottom: 20px;
 		}
-		.popup-content {
-			background-color: #fff;
-			padding: 30px;
+
+		button {
+			background-color: #ff4444;
+			color: white;
+			padding: 10px 20px;
+			border: none;
 			border-radius: 5px;
-			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-			text-align: center;
+			cursor: pointer;
+			transition: all 0.2s;
 		}
+
+		button:hover {
+			background-color: #cc0000;
+		}
+
+		.popup {
+			display: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #1c1c1c;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(255, 68, 68, 0.5);
+			color: white;
+		}
+
 		.popup.show {
-			opacity: 1;
-			pointer-events: auto;
+			display: block;
+		}
+
+		.close-btn {
+			background-color: #ff4444;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.2s;
+			float: right;
+		}
+
+		.close-btn:hover {
+			background-color: #cc0000;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+			margin: 20px auto;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(255, 68, 68, 0.5);
 		}
 	</style>
 </head>
@@ -72,9 +96,9 @@
 	</div>
 	<div class="popup" id="popup">
 		<div class="popup-content">
-			<h2>Welcome!</h2>
-			<img src="https://via.placeholder.com/500" alt="Image">
-			<p>This is your secret information.</p>
+			<h2>Track 01</h2>
+			<img src="https://i.imgur.com/JN10uOS.png" alt="Track">
+			<p>13/05 20:00</p>
 			<button id="close-btn">Close</button>
 		</div>
 	</div>
